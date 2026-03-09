@@ -10,7 +10,7 @@ st.set_page_config(page_title="Sports Classifier", layout="centered")
 @st.cache_resource
 def load_model():
 
-    return tf.keras.models.load_model('models/sports_classifier.h5')
+    return tf.keras.models.load_model('sports_classifier.h5')
 
 model = load_model()
 
@@ -45,4 +45,5 @@ if uploaded_file is not None:
         predicted_sport = class_name[pred_idx].replace('_',' ')
 
         st.success(f"Prediction: {predicted_sport.title()}")
+
         st.info(f"Confidence: {confidence:.2f}%")
